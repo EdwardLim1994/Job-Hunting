@@ -1,6 +1,4 @@
 <template lang="pug">
-div
-    h3 Index page
 </template>
 
 <script lang="coffee">

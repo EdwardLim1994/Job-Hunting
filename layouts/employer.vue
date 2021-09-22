@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-    h3 Index page
+	Nuxt
 </template>
 
 <script lang="coffee">

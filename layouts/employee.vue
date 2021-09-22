@@ -1,7 +1,5 @@
 <template lang="pug">
 div
-	header
-		h3 Header
 	Nuxt
 </template>
 

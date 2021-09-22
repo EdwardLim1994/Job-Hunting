@@ -4,7 +4,7 @@ export default {
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        title: 'learning1',
+        title: 'Job Hunting Site',
         meta: [
             { charset: 'utf-8' },
             {
@@ -15,20 +15,40 @@ export default {
             { name: 'format-detection', content: 'telephone=no' },
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
             {
-                href: 'https://use.fontawesome.com/releases/v5.15.1/css/all.css',
-                rel: 'stylesheet',
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href: '/favicon/favicon-16x16.png',
             },
             {
-                href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap',
-                rel: 'stylesheet',
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href: '/favicon/favicon-32x32.png',
             },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '192x192',
+                href: '/favicon/android-chrome-192x192.png',
+            },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '512x512',
+                href: '/favicon/android-chrome-512x512.png',
+            },
+            {
+                rel: 'apple-touch-icon',
+                href: '/favicon/apple-touch-icon.png',
+            },
+            { rel: 'shortcut icon', href: '/favicon/favicon.ico' },
         ],
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: ['mdb-vue-ui-kit/css/mdb.min.css'],
+    css: [],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [],
@@ -46,6 +66,7 @@ export default {
         // https://go.nuxtjs.dev/pwa
         '@nuxtjs/pwa',
         'nuxt-coffeescript-module',
+        'mdbvue/nuxt',
     ],
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
