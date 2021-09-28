@@ -7,13 +7,11 @@ div
       img.logo(src="titleImage.jpeg")
     mdb-navbar-toggler.col-4.p-0.m-0
       mdb-navbar-nav(v-if="getLogin" right)
-        mdb-nav-item(v-if="getIsEmployee" href="/employee") My Profile
-        mdb-nav-item(v-else href="/employer") My Profile
+        mdb-nav-item(v-if="getIsEmployee" href="/profile") My Profile
+        mdb-nav-item(v-else href="/profile") My Profile
         mdb-nav-item(@click="logout") Logout
       mdb-navbar-nav(v-else right)
         mdb-nav-item(@click="login") Login/Register
-  .mt-5.pt-5.d-none
-    button.btn.btn-primary(v-on:click="setEmployee") Click Me
 </template>
 
 <script lang="coffee">
@@ -40,20 +38,17 @@ export default {
     }
 
   methods: {
-    setEmployee: ->
-      if(process.client)
-        localStorage.setItem("test", !@.isEmployee)
-        window.location.reload()
+
     logout: ->
       if(process.client)
         localStorage.removeItem("test")
         localStorage.removeItem("login")
-        window.location.reload()
-
+        window.location.href = "/"
     login: ->
       if(process.client)
         localStorage.setItem("login", !@.isLogin)
-        window.location.reload()
+        localStorage.setItem("test", !@.isEmployee)
+        window.location.href = "/"
   }
 
   computed: {
