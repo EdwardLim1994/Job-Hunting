@@ -1,13 +1,13 @@
 <template lang="pug">
 
-main.p-0.m-0.mx-5.container-md.max-vw-100
+main.p-0.m-0.mx-lg-5
 	mdb-row.p-0.m-0
-		mdb-col.p-0.m-0.d-flex.flex-row.list(col="12" md="6" lg="4")
+		mdb-col.p-0.m-0.d-flex.flex-row.list(col="12" md="4")
 			JobList.listContent(:class="[isActive ? 'w-100' : 'w-0']")
 			.listButton.bg-secondary.py-4.px-2.h-25.mt-5(@click="drawerTrigger")
 				i.fas.fa-bars
 		mdb-col.p-0.m-0.description
-			JobDescription.bg-secondary
+			JobDescription
 
 </template>
 
