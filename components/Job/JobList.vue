@@ -30,7 +30,7 @@ export default {
 			overflow auto
 
 		&Content
-			max-height 84vh
+			max-height 80vh
 			overflow auto
 			position relative
 

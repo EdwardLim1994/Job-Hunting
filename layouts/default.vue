@@ -1,7 +1,7 @@
 <template lang="pug">
 div
 	Header
-	Nuxt
+	Nuxt.addTop
 	Footer.footer.position-absolute.w-100
 </template>
 
@@ -13,6 +13,9 @@ export default {
 
 <style lang="stylus">
 	@import '~/assets/responsive.styl'
+
+	.addTop
+		transform translateY(13%)
 
 	.footer
 		z-index 10

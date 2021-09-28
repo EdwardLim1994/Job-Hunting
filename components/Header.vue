@@ -1,8 +1,7 @@
 <template lang="pug">
-div
-  mdb-navbar.row.p-0.m-0.px-1.px-md-5(expand="large" dark color="blue")
+  mdb-navbar.row.p-0.m-0.px-1.px-md-5(expand="large" dark color="blue" position="top")
     span.col-4.p-0.m-0
-      h1.text-white.font-weight-bold Job Hunting Site
+      a.text-white.font-weight-bold.h2(href="/") Job Hunting Site
     mdb-navbar-brand.col-4.p-0.m-0(:class="screenWidth", href="#")
       img.logo(src="titleImage.jpeg")
     mdb-navbar-toggler.col-4.p-0.m-0
