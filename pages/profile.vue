@@ -3,7 +3,7 @@
   main.mt-5
     mdbContainer
       h2 My Profile
-      Profile-Employee-MainProfile(v-if="getIsEmployee == true")
+      Profile-Employee-MainProfile(v-if="getIsEmployee === 'true'")
       Profile-Employer-MainProfile(v-else)
 
 </template>
@@ -30,7 +30,6 @@ export default {
     getIsEmployee: ->
       if(process.client)
         data =  localStorage.getItem('test')
-        console.log data
         return data
   }
 }

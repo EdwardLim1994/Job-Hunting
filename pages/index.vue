@@ -3,8 +3,8 @@
 main.p-0.m-0.mx-lg-5
 	mdb-row.p-0.m-0
 		mdb-col.p-0.m-0.d-flex.flex-row.list(col="12" md="4")
-			JobList.listContent(:class="[isActive ? 'w-100' : 'w-0']")
-			.listButton.bg-secondary.py-4.px-2.h-25.mt-5(@click="drawerTrigger")
+			JobList.listContent(:class="[isActive ? 'listContent--open' : 'listContent--close']")
+			.listButton.py-4.px-2.h-25.mt-5(@click="drawerTrigger")
 				i.fas.fa-bars
 		mdb-col.p-0.m-0.description
 			JobDescription
@@ -29,6 +29,12 @@ export default {
 		drawerTrigger: ->
 			@isActive = !@isActive
 			return
+
+		closeList: ->
+			if(client.process)
+				if(window.innerWidth <= 991)
+					@isActive = false
+					return
 	}
 }
 </script>
@@ -49,6 +55,15 @@ export default {
 		&Content
 			+atMedium()
 				width 100% !important
+
+			&--open
+				width 100% !important
+
+			&--close
+				width 0% !important
+
+				+atMedium()
+					width 100% !important
 
 		&Button
 			display block

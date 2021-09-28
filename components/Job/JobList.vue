@@ -27,7 +27,7 @@ export default {
 
 	.list
 		&Container
-			overflow hidden
+			overflow auto
 
 		&Content
 			max-height 84vh
@@ -36,6 +36,9 @@ export default {
 
 	.option
 		margin-bottom 2px !important
+
+	.hoverable:hover
+		background-color grey !important
 </style>
 
 
