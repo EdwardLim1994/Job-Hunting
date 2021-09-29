@@ -1,13 +1,14 @@
 <template lang="pug">
   mdb-navbar.row.p-0.m-0.px-1.px-md-5(expand="large" dark color="blue" position="top")
     span.col-4.p-0.m-0
-      a.text-white.font-weight-bold.h2(href="/") Job Hunting Site
+      NuxtLink(to="/")
+        h1.text-white.font-weight-bold Job Hunting Site
     mdb-navbar-brand.col-4.p-0.m-0(:class="screenWidth", href="#")
       img.logo(src="titleImage.jpeg")
     mdb-navbar-toggler.col-4.p-0.m-0
       mdb-navbar-nav(v-if="getLogin" right)
-        mdb-nav-item(v-if="getIsEmployee" href="/profile") My Profile
-        mdb-nav-item(v-else href="/profile") My Profile
+        mdb-nav-item(v-if="getIsEmployee" to="/profile") My Profile
+        mdb-nav-item(v-else to="/profile") My Profile
         mdb-nav-item(@click="logout") Logout
       mdb-navbar-nav(v-else right)
         mdb-nav-item(@click="login") Login/Register
@@ -37,17 +38,13 @@ export default {
     }
 
   methods: {
-
     logout: ->
       if(process.client)
-        localStorage.removeItem("test")
+        localStorage.removeItem("role")
         localStorage.removeItem("login")
         window.location.href = "/"
     login: ->
-      if(process.client)
-        localStorage.setItem("login", !@.isLogin)
-        localStorage.setItem("test", !@.isEmployee)
-        window.location.href = "/"
+      @.$emit('showModal', true)
   }
 
   computed: {
@@ -64,7 +61,7 @@ export default {
 
     getIsEmployee: ->
       if(process.client)
-        return localStorage.getItem('test')
+        return localStorage.getItem('role')
   }
 
   fetchOnServer: false

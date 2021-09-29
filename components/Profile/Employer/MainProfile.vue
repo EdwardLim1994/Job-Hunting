@@ -8,10 +8,10 @@ mdbTabs(
     )
     template(:slot="'profile'")
         mdbContainer
-            Profile-Employer-UpdateProfile.py-3
+            Profile-Employer-UpdatePersonalProfile.py-3.containerHeight
     template(:slot="'company-profile'")
         mdbContainer
-            Profile-Employer-UpdateCompanyProfile.py-3
+            Profile-Employer-UpdateCompanyProfile.py-3.containerHeight
     template(:slot="'created-job'")
         mdbContainer
             Profile-Employer-CreatedJob.py-3
@@ -20,7 +20,6 @@ mdbTabs(
 <script lang="coffee">
 import {mdbContainer, mdbTabs} from "mdbvue"
 export default {
-    name: "Profile-Employer-MainProfile"
     components: {
         mdbContainer,
         mdbTabs
@@ -28,4 +27,9 @@ export default {
 }
 </script>
 
-<style lang="stylus"></style>
+<style lang="stylus" scoped>
+	.containerHeight
+		max-height 580px
+		overflow-y auto
+		overflow-x hidden
+</style>

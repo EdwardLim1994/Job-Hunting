@@ -1,16 +1,32 @@
 <template lang="pug">
-mdb-datatable-2.mt-4(v-model="data" scrollY hover maxHeight="440px")
+div
+	mdb-datatable-2.mt-4(v-model="data" scrollY hover maxHeight="400px"  @selected="getSelectedRow")
+	Modals-ViewJobDetailModal(:modal="showModal", @closeModal="getIsCloseModal")
 </template>
 
-<script>
+<script lang="coffee">
 	import { mdbDatatable2 } from 'mdbvue'
 	export default {
-		name: 'SavedJob',
+		name: 'SavedJob'
 		components: {
 			mdbDatatable2,
-		},
-		data() {
+		}
+		methods: {
+			handleShowModal: ->
+				@showModal = !@showModal
+				return
+
+			getIsCloseModal: ->
+				@showModal = false
+				return
+			getSelectedRow: (e) ->
+				@showModal = true
+				console.log(e)
+			
+		}
+		data: -> 
 			return {
+				showModal: false
 				data: {
 					columns: [
 						{
@@ -505,6 +521,6 @@ mdb-datatable-2.mt-4(v-model="data" scrollY hover maxHeight="440px")
 					],
 				},
 			}
-		},
 	}
+	
 </script>

@@ -8,10 +8,10 @@ mdbTabs(
     )
     template(:slot="'profile'")
         mdbContainer
-            Profile-Employee-UpdateProfile.py-3
+            Profile-Employee-UpdateProfile.py-3.containerHeight
     template(:slot="'saved-job'")
         mdbContainer
-            Profile-Employee-SavedJob
+            Profile-Employee-SavedJob.py-3.containerHeight
 </template>
 
 <script lang="coffee">
@@ -25,4 +25,9 @@ export default {
 }
 </script>
 
-<style lang="stylus"></style>
+<style lang="stylus">
+	.containerHeight
+		max-height 580px
+		overflow-y auto
+		overflow-x hidden
+</style>

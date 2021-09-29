@@ -1,13 +1,26 @@
 <template lang="pug">
 div
-	Header
-	Nuxt.addTop
+	Header(@showModal="handleShowModal")
+	Nuxt
 	Footer.footer.position-absolute.w-100
+	Modals-LoginRegisterModal(:modal="showModal", @closeModal="getIsCloseModal")
 </template>
 
 <script lang="coffee">
 export default {
-    
+	data: ->
+		return{
+			showModal: false
+		}
+	methods: {
+		handleShowModal: ->
+			@showModal = !@showModal
+			return
+
+		getIsCloseModal: ->
+			@showModal = false
+			return
+	}
 }
 </script>
 

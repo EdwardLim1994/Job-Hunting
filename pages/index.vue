@@ -1,6 +1,6 @@
 <template lang="pug">
 
-main.p-0.m-0.mx-lg-5
+main.p-0.m-0.mx-lg-5.addTop
 	mdb-row.p-0.m-0
 		mdb-col.p-0.m-0.d-flex.flex-row.list(col="12" md="4")
 			JobList.listContent(:class="[isActive ? 'listContent--open' : 'listContent--close']")
@@ -8,6 +8,7 @@ main.p-0.m-0.mx-lg-5
 				i.fas.fa-bars
 		mdb-col.p-0.m-0.description
 			JobDescription
+	
 
 </template>
 
@@ -23,6 +24,7 @@ export default {
 	data: ->
 		return {
 			isActive: false
+			
 		}
 
 	methods: {
@@ -41,6 +43,12 @@ export default {
 
 <style lang="stylus">
 	@import '~/assets/responsive.styl'
+
+	.addTop
+		transform translateY(10%)
+
+		+atMedium()
+			transform translateY(13.5%)
 
 	.list
 		transform translateX(-10px)
