@@ -14,7 +14,7 @@ mdbTabs(
             Profile-Employer-UpdateCompanyProfile.py-3.containerHeight
     template(:slot="'created-job'")
         mdbContainer
-            Profile-Employer-CreatedJob.py-3
+            Profile-Employer-CreatedJob.py-3.containerHeight
 </template>
 
 <script lang="coffee">
@@ -30,6 +30,7 @@ export default {
 <style lang="stylus" scoped>
 	.containerHeight
 		max-height 580px
+		min-height 580px
 		overflow-y auto
 		overflow-x hidden
 </style>

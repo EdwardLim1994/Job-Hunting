@@ -3,11 +3,16 @@ mdb-container
 	div
 		.row.p-4
 			.col-12.col-md-4.d-flex.align-items-center.justify-content-center
-				img.w-50(src="placeholder-images-image_large.png")
-			.col
-				h2.h2.p-0.m-0 Test Job 1
-				p.p-0.m-0.company
-					small.text-muted ABC Company
+				img.border.w-50(src="placeholder-images-image_large.png")
+			.col.p-3
+				div.d-flex.justify-content-between
+					div
+						h2.h2.p-0.m-0 Test Job 1
+						p.p-0.m-0.company
+							small.text-muted ABC Company
+					a.mr-5(v-if="getLogin" @click="savedJob")
+						i.far.fa-bookmark.fa-2x(v-if="isJobSaved")
+						i.text-primary.fas.fa-bookmark.fa-2x(v-else)
 				.row.pt-3.p-0.m-0(v-if="getLogin")
 					.col-6.p-0.m-0
 						table
@@ -56,6 +61,17 @@ export default {
 		mdbRow,
 		mdbIcon,
 		mdbTabs
+	}
+	
+	data: ->
+		return {
+			isJobSaved: false
+		}
+
+	methods: {
+		savedJob: ->
+			@isJobSaved = !@isJobSaved
+			return
 	}
 
 	computed: {

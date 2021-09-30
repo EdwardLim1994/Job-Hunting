@@ -1,6 +1,7 @@
 <template lang="pug">
 
-	main.mx-5.mt-3.mt-md-5.p-0.m-0
+main.mx-3.mx-md-5.mt-3.mt-md-5.p-0.m-0.profileAddTop
+	mdbContainer
 		h2 My Profile
 		Profile-Employee-MainProfile(v-if="getIsEmployee === 'true'")
 		Profile-Employer-MainProfile(v-else)
@@ -16,6 +17,7 @@ export default {
 		mdbRow,
 		mdbTabs,
 	}
+
 	created: ->
 		if(process.client)
 			if localStorage.getItem('login') == null or localStorage.getItem('login') == false
@@ -31,10 +33,11 @@ export default {
 				data =  localStorage.getItem('role')
 				return data
 	}
+
 }
 </script>
 
 <style lang="stylus" scoped>
-	.tableHeight
-		height 500px
+	.profileAddTop
+		transform translateY(60px)
 </style>

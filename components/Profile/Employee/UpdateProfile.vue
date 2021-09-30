@@ -1,5 +1,5 @@
 <template lang="pug">
-form.w-50
+form.w-100
     label(for="name") Your Name
     input#name.form-control(type="text")
     label(for="email") Your Email

@@ -4,6 +4,9 @@ div
 	Nuxt
 	Footer.footer.position-absolute.w-100
 	Modals-LoginRegisterModal(:modal="showModal", @closeModal="getIsCloseModal")
+	a(@click="closeToast")
+		Toast(v-if="isToastActive" :isSuccess="isSuccess", :toastHeader="toastHeader", :toastMessage="toastMessage")
+
 </template>
 
 <script lang="coffee">
@@ -11,6 +14,10 @@ export default {
 	data: ->
 		return{
 			showModal: false
+			isToastActive: true
+			isSuccess: true
+			toastHeader: 'Success'
+			toastMessage: 'This is a success toast'
 		}
 	methods: {
 		handleShowModal: ->
@@ -20,15 +27,17 @@ export default {
 		getIsCloseModal: ->
 			@showModal = false
 			return
+
+		closeToast: ->
+			console.log("Clicked")
+			@isToastActive = false
+			return
 	}
 }
 </script>
 
 <style lang="stylus">
 	@import '~/assets/responsive.styl'
-
-	.addTop
-		transform translateY(13%)
 
 	.footer
 		z-index 10

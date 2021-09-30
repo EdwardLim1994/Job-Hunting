@@ -3,13 +3,12 @@
 main.p-0.m-0.mx-lg-5.addTop
 	mdb-row.p-0.m-0
 		mdb-col.p-0.m-0.d-flex.flex-row.list(col="12" md="4")
-			JobList.listContent(:class="[isActive ? 'listContent--open' : 'listContent--close']")
+			Job-SearchJobBar.mt-2(:class="[isListActive ? 'w-100' : 'hideInMobile']")
+			JobList.listContentMaster(:class="[isListActive ? 'listContentMaster--open' : 'listContentMaster--close']")
 			.listButton.py-4.px-2.h-25.mt-5(@click="drawerTrigger")
 				i.fas.fa-bars
 		mdb-col.p-0.m-0.description
 			JobDescription
-	
-
 </template>
 
 <script lang="coffee">
@@ -20,28 +19,31 @@ export default {
 		mdbCol,
 		mdbContainer
 	}
-
+	
 	data: ->
 		return {
-			isActive: false
-			
+			isListActive: false
+			isInDesktopView: true
 		}
+
 
 	methods: {
 		drawerTrigger: ->
-			@isActive = !@isActive
+			@isListActive = !@isListActive
 			return
 
 		closeList: ->
 			if(client.process)
 				if(window.innerWidth <= 991)
-					@isActive = false
+					@isListActive = false
 					return
+				else
+					@isListActive = true
 	}
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 	@import '~/assets/responsive.styl'
 
 	.addTop
@@ -50,25 +52,33 @@ export default {
 		+atMedium()
 			transform translateY(13.5%)
 
+	.hideInMobile
+		display none
+
+		+atMedium()
+			display flex
+			width 100%
+
 	.list
-		transform translateX(-10px)
+		// transform translateX(-10px)
 		position absolute
-		z-index 10
 
 		+atMedium()
 			transform translateX(0)
 			position relative
 			z-index 0
 
-		&Content
+		&ContentMaster
 			+atMedium()
 				width 100% !important
 
 			&--open
 				width 100% !important
+				z-index 10
 
 			&--close
 				width 0% !important
+				z-index 0
 
 				+atMedium()
 					width 100% !important
@@ -77,6 +87,7 @@ export default {
 			display block
 			transform translateX(0)
 			border-radius 0 10px 10px 0
+			z-index 10
 
 			+atMedium()
 				display none

@@ -1,6 +1,7 @@
 <template lang="pug">
-div.listContainer
-	.listContent
+div.listContainer.mt-3
+	
+	.listContent(style="transform:translateY(40px);")
 		JobOptions.m-0.hoverable.option
 		JobOptions.m-0.hoverable.option
 		JobOptions.m-0.hoverable.option
@@ -27,10 +28,10 @@ export default {
 
 	.list
 		&Container
-			overflow auto
+			// overflow auto
 
 		&Content
-			max-height 80vh
+			max-height 73vh
 			overflow auto
 			position relative
 
