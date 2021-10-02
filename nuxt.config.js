@@ -1,5 +1,6 @@
 export default {
     // Target: https://go.nuxtjs.dev/config-target
+    ssr: false,
     target: 'static',
 
     // Global page headers: https://go.nuxtjs.dev/config-head
@@ -81,4 +82,10 @@ export default {
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
+
+    env: {
+        BASE_URL: 'http://localhost/Project/Job_Hunting/app/',
+        KEY: '0123456789abcdef0123456789abcdef',
+        IV: 'abcdef9876543210abcdef9876543210',
+    },
 }

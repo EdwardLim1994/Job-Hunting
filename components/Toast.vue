@@ -14,8 +14,11 @@
 	@import '~/assets/responsive.styl'
 
 	.toastMain
-		transform translateY(20px)
+		// transform translateY(200px)
+		top auto
+		bottom 50px
 
 		+atMedium()
 			transform translateY(50px)
+			bottom 100px
 </style>

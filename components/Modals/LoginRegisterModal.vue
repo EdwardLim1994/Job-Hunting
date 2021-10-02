@@ -13,10 +13,10 @@ mdbModal(:show="modal", @close="closeModal")
 		)
 			template(:slot="'login'")
 				mdbContainer
-					Modals-Forms-LoginForm.w-100.px-3.pt-4
+					Modals-Forms-LoginForm.w-100.px-3.pt-4(@toast="onToast")
 			template(:slot="'register'")
 				mdbContainer
-					Modals-Forms-RegisterForm.w-100.px-3.pt-4
+					Modals-Forms-RegisterForm.w-100.px-3.pt-4(@toast="onToast")
 
 </template>
 
@@ -42,6 +42,9 @@ export default {
 	methods: {
 		closeModal: ->
 			@.$emit('closeModal', false)
+
+		onToast: (value) ->
+			@.$emit("toast", value)
 	}
 
 }
