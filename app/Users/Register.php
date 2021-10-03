@@ -4,8 +4,6 @@ require_once "../connect.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    //$password = trim(openssl_decrypt($request->password, 'AES-128-CBC', hex2bin(KEY), OPENSSL_ZERO_PADDING, hex2bin(IV)));
-
     $request = json_decode(file_get_contents('php://input'));
 
     $name = $request->name;
@@ -50,6 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         echo json_encode($response);
     }
-
-    mysqli_close($conn);
 }
+
+mysqli_close($conn);

@@ -66,8 +66,6 @@ export default {
 		token = localStorage.getItem('token')
 		id = localStorage.getItem('id')
 
-		console.log(id, token)
-
 		response = await @.$axios.post(process.env.BASE_URL + 'Users/Status.php', {
 			id: id,
 			token: token

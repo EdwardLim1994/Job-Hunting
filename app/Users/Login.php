@@ -7,9 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $request = json_decode(file_get_contents('php://input'));
 
-    $username = $request->username;
+    $usernameORemail = $request->usernameORemail;
     $password = $request->password;
-    $sql = "SELECT COUNT(id) as getUser, id, role from user WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT COUNT(id) as getUser, id, role from user WHERE username = '$usernameORemail' OR email = '$usernameORemail' AND password = '$password'";
 
     $results = mysqli_query($conn, $sql);
     if (mysqli_num_rows($results) > 0) {
@@ -61,7 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         echo json_encode($response);
     }
-
-
-    mysqli_close($conn);
 }
+
+mysqli_close($conn);
