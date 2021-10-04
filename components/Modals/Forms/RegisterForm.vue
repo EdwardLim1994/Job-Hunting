@@ -176,6 +176,10 @@ export default{
 						@email.isValid = true
 						@email.validate.class = 'is-valid'
 						@email.validate.title = ''
+			else
+				@email.isValid = false
+				@email.validate.class = ''
+				@email.validate.title = ''
 			@checkIsAllInputValid()
 			return
 
@@ -292,8 +296,6 @@ export default{
 							@.$emit('toast', {header: 'Error', message: callback.message})
 						).bind(@), 3000)
 						
-
-
 	}
 
 	fetchOnServer: false

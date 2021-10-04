@@ -7,8 +7,7 @@ mdb-navbar.row.p-0.m-0.px-1.px-md-5(expand="large" dark color="blue" position="t
 		img.logo(src="titleImage.jpeg")
 	mdb-navbar-toggler.col-4.p-0.m-0
 		mdb-navbar-nav(v-if="isLogin" right)
-			mdb-nav-item(v-if="isEmployee" to="/profile") My Profile
-			mdb-nav-item(v-else to="/profile") My Profile
+			mdb-nav-item(to="/profile") My Profile
 			mdb-nav-item(@click="logout") Logout
 		mdb-navbar-nav(v-else right)
 			mdb-nav-item(@click="login") Login/Register

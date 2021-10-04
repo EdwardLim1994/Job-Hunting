@@ -5,7 +5,12 @@ div
 	Footer.footer.position-absolute.w-100
 	Modals-LoginRegisterModal(:modal="showModal", @closeModal="getIsCloseModal"  @toast="onToast")
 	a(@click="closeToast")
-		Toast.toastZPosition(v-if="isToastActive" :isSuccess="isSuccess", :toastHeader="toastHeader", :toastMessage="toastMessage")
+		Toast.toastZPosition(
+			v-if="isToastActive" 
+			:isSuccess="isSuccess", 
+			:toastHeader="toastHeader", 
+			:toastMessage="toastMessage"
+		)
 
 </template>
 
