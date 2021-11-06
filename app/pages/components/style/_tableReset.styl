@@ -1,0 +1,41 @@
+@import './utilities/_responsive.styl'
+
+.tableReset
+    width 160vw !important
+
+    +atMedium()
+        width 100% !important
+
+    thead
+        display table
+        width 100%
+        table-layout fixed
+
+        th.index
+            +atMedium()
+                width 10%
+
+        td.wide, th.wide
+            +atMedium()
+                width 40%
+
+    tbody
+        display block
+        max-height 100%
+
+        +atMedium()
+            max-height 300px
+            overflow-y scroll
+
+        th.index
+            +atMedium()
+                width 10%
+
+        td.wide, th.wide
+            +atMedium()
+                width 40%
+
+        tr
+            display table
+            width 100%
+            table-layout fixed

@@ -1,0 +1,30 @@
+@import './utilities/_responsive.styl'
+
+.profileForm
+    &--width
+        width 100%
+
+        +atMedium()
+            width 75%
+
+    &--addHeight
+        height 72vh
+
+        +atMedium()
+            height 100%
+
+    &--addMoreHeight
+        height 130vh
+
+        +atMedium()
+            height 100%
+
+    &__previewImage
+        display flex
+        align-items center
+
+        img
+            border 2px solid grey
+            border-radius 5px
+            max-width 200px !important
+            max-height 200px !important
