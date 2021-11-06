@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="192x192" href="./images/favicon/android-chrome-192x192.png" />
+	<link rel="icon" type="image/png" sizes="512x512" href="./images/favicon/android-chrome-512x512.png" />
+	<link rel="apple-touch-icon" href="./images/favicon/apple-touch-icon.png">
+	<link rel="shortcut icon" href="./images/favicon/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<title>Job Hunting Site</title>
+</head>
+
+<body class="preload">
+	<div class="justify-content-center align-items-center d-none" id="overlay">
+		<div class="spinner-border text-light" style="width: 5rem; height: 5rem;" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+	</div>
+	<header class="fixed-top w-100 header--removePadding">
+		<nav class="navbar navbar-light header blue scrolling-navbar p-0 p-md-1 px-md-2 px-md-4 m-0 w-100">
+			<div class="w-100">
+				<div class="row p-0 m-0" style="width:100%;">
+					<div class="col-12 col-md-4 p-0 m-0 order-2 text-center text-md-left order-md-1 my-auto">
+						<a class="text-light" href="/">
+							<h1 class="h1-responsive font-weight-bold">Job Hunting Site</h1>
+						</a>
+					</div>
+					<div
+						class="col-12 col-md-4 p-0 m-0 order-1 order-md-2 d-flex justify-content-center align-items-center">
+						<a href="https://www.nightcatdigitalsolutions.com"
+							class="navbar-brand header__logo m-auto p-auto">
+							<img class="img-fluid rounded hoverable" src="./images/titleImage.jpeg" alt="Title Image">
+						</a>
+					</div>
+					<div class="col-12 col-md-4 p-0 m-0 order-3 order-md-3 text-center text-md-right my-auto"
+						id="headerMenu">
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<main class="jobShowcase wrapper--addLessTop">
+		<div class="row  p-0 m-0">
+			<button id="jobListDrawerTrigger" class="btn btn-primary py-2 px-3 m-3 rounded-circle position-absolute"
+				style="top: 0;right:0;z-index: 1001;">
+				<i class="fas fa-bars"></i>
+			</button>
+			<div id="jobListWrapper" data-state="isClose" class="col-12 col-md-4 bg-white p-0 m-0 wrapper--addBottom"
+				style="z-index:1000;">
+				<div id="jobList" class="jobShowcase__list position-relative" style="overflow:auto;">
+					<div>
+						<input type="text" id="searchJobInput" class="form-control sticky-top input-lg"
+							placeholder="Search for jobs" />
+						<div id="jobListContainer" data-current-offset="0" data-is-loading="0" data-current-selected="0"
+							data-is-searching="0">
+						</div>
+					</div>
+				</div>
+				<button id="scrollToTopBtn"
+					class="btn btn-primary py-2 px-3 m-3 rounded-circle position-absolute d-none"
+					style="bottom: 0;z-index: 1001;">
+					<i class="fas fa-arrow-up"></i>
+				</button>
+			</div>
+			<div id="jobDescriptionWrapper" class="col p-0 m-0" style="overflow: auto;">
+				<div id="jobDescription" class="jobShowcase__description">
+
+					<div class="row p-0 m-0">
+						<div class="col-12 col-md-4 p-0 m-0 py-2 d-flex align-items-center justify-content-center">
+							<img id="jobDetailImage" class="img-fluid border" alt="">
+						</div>
+						<div class="col p-0 m-0 py-1 px-3 p-md-3">
+							<div class="d-flex justify-content-between">
+								<div>
+									<h2 class="h2-responsive p-0 m-0 font-weight-bold" id="jobDetailTitle"></h2>
+									<p>
+										<small id="jobDetailCompany" class="text-muted"></small>
+									</p>
+								</div>
+								<div id="jobDetailSaved" class="mr-1 mr-md-5">
+								</div>
+							</div>
+							<div class="row pt p-0 m-0">
+								<div class="col-6 p-0 m-0">
+									<table>
+										<tr>
+											<td>
+												<p class="p-0 m-0 pb-2 pb-md-3">
+													<strong>Experience</strong>
+													<br>
+													<span id="jobDetailExperience"></span> years
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<p class="p-0 m-0 pb-2 pb-md-3">
+													<strong>Salary</strong>
+													<br>
+													RM <span id="jobDetailSalary"></span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<p class="p-0 m-0 pb-2 pb-md-3">
+													<strong>Posted Date</strong>
+													<br>
+													<span id="jobDetailDate"></span>
+												</p>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div class="col-6 p-0 m-0">
+									<table>
+										<tr>
+											<td>
+												<p class="p-0 m-0 pb-2 pb-md-3">
+													<strong>Address</strong>
+													<br>
+													<span id="jobDetailAddress"></span>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<p class="p-0 m-0 pb-2 pb-md-3">
+													<strong>Email</strong>
+													<br>
+													<a id="jobDetailEmail" href=""></a>
+												</p>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<p class="p-0 m-0 pb-2 pb-md-3">
+													<strong>Website</strong>
+													<br>
+													<a id="jobDetailURL" href=""></a>
+												</p>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row p-0 m-0">
+						<div class="col-12 p-0 m-0">
+
+
+							<ul class="nav nav-tabs" id="jobDetailTab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="jobDescription-tab" data-toggle="tab"
+										href="#jobDescriptionContent" role="tab" aria-controls="jobDescriptionContent"
+										aria-selected="true">Description</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="jobRequirement-tab" data-toggle="tab"
+										href="#jobRequirementContent" role="tab" aria-controls="jobRequirementContent"
+										aria-selected="true">Requirements</a>
+								</li>
+							</ul>
+							<div class="tab-content" id="jobDetailContent" style="overflow: auto;">
+								<div class="tab-pane container-fluid py-3 fade show active" id="jobDescriptionContent"
+									role="tabpanel" aria-labelledby="jobDescription-tab">
+								</div>
+								<div class="tab-pane container-fluid py-3 fade" id="jobRequirementContent"
+									role="tabpanel" aria-labelledby="jobRequirement-tab">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</main>
+	<!-- Footer -->
+	<footer class="page-footer font-small mdb-color blue w-100 fixed-bottom" style="width: auto;">
+		<div class="col-md-12">
+			<!-- Social Link on Bottom -->
+			<div class="py-2 d-flex justify-content-around justify-content-md-center align-items-center bottomLink">
+				<a class="whatsappLink hoverable rounded">
+					<i class="fab fa-whatsapp a-lg mx-2 fa-2x"></i>
+				</a>
+				<!-- Facebook -->
+				<a class="fb-ic hoverable rounded" href="https://www.facebook.com/nightcatdigitalsolutions">
+					<i class="fab fa-facebook fa-lg mx-2 fa-2x"> </i>
+				</a>
+				<!-- Twitter -->
+				<a class="tw-ic hoverable rounded" href="https://twitter.com/nightcatdigital">
+					<i class="fab fa-twitter fa-lg mx-2 fa-2x"> </i>
+				</a>
+				<!--Instagram-->
+				<a class="ins-ic hoverable rounded" href="https://www.instagram.com/nightcatdigitalsolutions/">
+					<i class="fab fa-instagram fa-lg mx-2 fa-2x"> </i>
+				</a>
+			</div>
+		</div>
+		<div class="footer-copyright text-center py-2">
+			<a href="https://www.nightcatdigitalsolutions.com">NIGHTCAT DIGITAL SOLUTIONS © 2013 -
+				<span id="latestYear"></span>. ALL RIGHTS RESERVED</a>
+		</div>
+	</footer>
+
+	<!-- Login Register Modal -->
+	<div class="modal fade w-100" id="loginRegisterModal" tabindex="-1" role="dialog"
+		aria-labelledby="LoginRegisterModal" aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header bg-primary">
+					<button id="closeModal" class="close text-white" type="button" data-dismiss="modal"
+						aria-label="CloseLoginRegisterModal">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul class="nav nav-tabs w-100" id="loginRegisterTabList" role="tablist">
+						<li class="nav-item w-50 text-center">
+							<a href="#loginFormContent" class="h5-responsive nav-link active" id="loginTab"
+								data-toggle="tab" role="tab" aria-controls="loginFormContent"
+								aria-selected="true">Login</a>
+						</li>
+						<li class="nav-item w-50 text-center">
+							<a href="#registerFormContent" class="h5-responsive nav-link" id="registerTab"
+								data-toggle="tab" role="tab" aria-controls="registerFormContent"
+								aria-selected="false">Register</a>
+						</li>
+					</ul>
+					<div class="tab-content" id="loginRegisterTabContent">
+						<div class="tab-pane fade show active" id="loginFormContent" role="tabpanel"
+							aria-labelledby="loginTab">
+							<div class="container mt-4">
+								<form id="loginForm">
+									<div class="form-group">
+										<label for="loginUsernameEmail">Username / Email</label>
+										<input type="text" id="loginUsernameEmail" class="form-control" required>
+										<div id="loginUsernameEmailValidation"></div>
+									</div>
+									<div class="form-group">
+										<label for="loginPassword">Password</label>
+										<input type="password" id="loginPassword" class="form-control" required>
+										<div id="loginPasswordValidation"></div>
+									</div>
+									<div class="d-flex flex-column">
+										<a href="" class="right">Forget password?</a>
+										<button class="btn btn-primary m-0 mt-3 w-100" disabled type="button"
+											id="loginFormSubmit">
+											Login
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="registerFormContent" role="tabpanel"
+							aria-labelledby="registerTab">
+							<div class="container mt-4">
+								<form id="registerForm">
+									<div class="form-group">
+										<label for="registerName">Your Name</label>
+										<input type="text" name="registerName" id="registerName" class="form-control"
+											required>
+										<div id="registerNameValidation"></div>
+									</div>
+									<div class="form-group">
+										<label for="registerEmail">Your Email</label>
+										<input type="email" name="registerEmail" id="registerEmail" class="form-control"
+											required>
+										<div id="registerEmailValidation"></div>
+									</div>
+									<div class="form-group">
+										<label for="registerUsername">Username</label>
+										<input type="text" name="registerUsername" id="registerUsername"
+											class="form-control" required>
+										<div id="registerUsernameValidation"></div>
+									</div>
+									<div class="form-group">
+										<label for="registerRole">Role</label>
+										<select name="role" id="registerRole" class="browser-default custom-select"
+											required>
+											<option selected disabled>Select Role</option>
+											<option value="employee">Employee</option>
+											<option value="employer">Employer</option>
+										</select>
+										<div id="registerRoleValidation"></div>
+									</div>
+									<div class="form-group">
+										<label for="registerPassword">Password</label>
+										<input type="password" name="registerPassword" id="registerPassword"
+											class="form-control" required>
+										<div id="registerPasswordValidation"></div>
+									</div>
+									<div class="form-group">
+										<label for="registerConfirmPassword">Confirm Password</label>
+										<input type="password" name="registerConfirmPassword"
+											id="registerConfirmPassword" class="form-control" required>
+										<div id="registerConfirmPasswordValidation"></div>
+									</div>
+									<div class="d-flex flex-column">
+										<button class="btn btn-primary m-0 mt-3 w-100" disabled type="button"
+											id="registerFormSubmit">
+											Register
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Login Register Modal -->
+
+	<!-- Notification Modal -->
+	<div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModal"
+		aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-notify" id="notificationType" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<p class="heading lead" id="notificationTitle">
+					</p>
+				</div>
+				<div class="modal-body">
+					<div class="text-center d-flex flex-column justify-content-center" id="notificationBody">
+					</div>
+				</div>
+				<div class="modal-footer" id="notificationFooter">
+					<button type="button" class="btn" data-dismiss="modal" id="notificationClose">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Notification Modal -->
+
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+	<script type="module" src="/main.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('body').removeClass('preload');
+
+			window.onhashchange = () => {
+				let hash = window.location.hash
+				if (hash == "#notify") {
+					$("#loginRegisterModal").modal('hide');
+					$("#notificationModal").modal("show");
+
+					$("#notificationClose").on("click", () => {
+						history.replaceState(null, null, ' ');
+					})
+				}
+			}
+		});
+	</script>
+</body>
+
+
+</html>

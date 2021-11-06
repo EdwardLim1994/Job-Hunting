@@ -1,0 +1,28 @@
+@import './utilities/_responsive.styl'
+
+.wrapper
+    &--addTop
+        transform translateY(8rem)
+
+        +atMedium()
+            transform translateY(6.7rem)
+
+    &--addLessTop
+        transform translateY(8rem)
+
+        +atMedium()
+            transform translateY(6.8rem)
+
+    &--addBottom
+        margin-bottom 15rem
+
+        +atMedium()
+            margin-bottom 12rem
+
+    &--responsive
+        position absolute
+        width 80%
+
+        +atMedium()
+            position relative
+            width 100%

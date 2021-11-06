@@ -1,0 +1,19 @@
+@import './utilities/_responsive.styl'
+
+.jobDrawer
+    &--isOpen
+        transform translateX(0)
+        transition all 0.5s ease-in-out
+
+    &--isClose
+        transform translateX(-24rem)
+        transition all 0.5s ease-in-out
+
+    &__menuIcon
+        &--isOpen
+            transform rotate(90deg)
+            transition all 0.5s ease-in-out
+
+        &--isClose
+            transform rotate(0deg)
+            transition all 0.5s ease-in-out
