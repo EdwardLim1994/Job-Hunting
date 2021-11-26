@@ -32,7 +32,7 @@ if window.location.pathname is "#{env.CURRENT_PATH}/profile.html"
     profileTab = new ProfileTab()
     updateCompanyProfile = new UpdateCompanyProfile()
 
-if window.location.pathname is "#{env.CURRENT_PATH}/index.html"
+if window.location.pathname is "#{env.CURRENT_PATH}/"
     renderJobList = new RenderJobList()
     jobListDrawer = new JobListDrawer()
 

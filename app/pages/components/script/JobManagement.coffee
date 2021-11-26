@@ -514,7 +514,7 @@ class JobManagement
 
         @addJobExperience.on "focusout", (->
             if(@addJobExperience.val())
-                if(parseInt(@addJobExperience.val()) >= 1)
+                if(parseInt(@addJobExperience.val()) >= 0)
                     @validFeedback(@addJobExperience, @addJobExperienceValidate, "Looks Good")
                     isExperienceValid = true
                 else
@@ -611,7 +611,7 @@ class JobManagement
 
         @updateJobExperience.on "focusout", (->
             if(@updateJobExperience.val())
-                if(parseInt(@updateJobExperience.val()) >= 1)
+                if(parseInt(@updateJobExperience.val()) >= 0)
                     @validFeedback(@updateJobExperience, @updateJobExperienceValidate, "Looks Good")
                     isExperienceValid = true
                 else

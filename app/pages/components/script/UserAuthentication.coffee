@@ -91,13 +91,13 @@ class UserAuthentication
                     $.removeCookie('id', { path: "#{env.CURRENT_PATH}", domain: "#{env.DOMAIN}" })
                     $.removeCookie('token', { path: "#{env.CURRENT_PATH}", domain: "#{env.DOMAIN}" })
                     $.removeCookie('role', { path: "#{env.CURRENT_PATH}", domain: "#{env.DOMAIN}" })
-                    window.location.href = "#{env.CURRENT_PATH}/index.html"
+                    window.location.href = "#{env.CURRENT_PATH}"
         else
             if window.location.href.indexOf("profile.html") > -1
                 $.removeCookie('id', { path: "#{env.CURRENT_PATH}", domain: "#{env.DOMAIN}" })
                 $.removeCookie('token', { path: "#{env.CURRENT_PATH}", domain: "#{env.DOMAIN}" })
                 $.removeCookie('role', { path: "#{env.CURRENT_PATH}", domain: "#{env.DOMAIN}" })
-                window.location.href = "#{env.CURRENT_PATH}/index.html"
+                window.location.href = "#{env.CURRENT_PATH}"
         return
 
     logout: ->
@@ -196,7 +196,6 @@ class UserAuthentication
                 }
                 success: ((response) ->
                     callback = JSON.parse(response)
-                    console.log callback
                     setTimeout((->
                         switch callback.status
                             when "success"
@@ -217,7 +216,6 @@ class UserAuthentication
                     return
                 ).bind(@)
                 error: ((e) ->
-                    console.log e.responseText
                     @notify.showErrorMessage(e.responseText)
                     @closeModal.attr("disabled", false)
                     window.location = "#notify"
@@ -267,7 +265,6 @@ class UserAuthentication
                 ).bind(@)
 
                 error: ((e) ->
-                    console.log e
                     @updateProfileFormSubmit.attr('disabled', false).text("Update")
                     @notify.showErrorMessage(e.responseText)
                     window.location = "#notify"

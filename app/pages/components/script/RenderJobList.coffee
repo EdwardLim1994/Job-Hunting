@@ -245,7 +245,7 @@ class RenderJobList
                         @jobDescriptionContent.empty().html(callback.data.job.description)
                         @jobRequirementContent.empty().html(callback.data.job.requirement)
                         @jobDetailEmail.text("#{callback.data.company.email}").attr("href", "mailto:#{callback.data.company.email}")
-                        @jobDetailURL.text("#{callback.data.company.url}").attr("href", "#{callback.data.company.url}")
+                        @jobDetailURL.text("#{if callback.data.company.url then callback.data.company.url else "no website"}").attr("href", "#{if callback.data.company.url then callback.data.company.url else ""}")
                         @jobListContainer.find(">:first-child").addClass('jobShowcase__options--active')
                         @jobListContainer.attr("data-current-selected", jobID)
                         @jobListContainer.data('current-selected', jobID)

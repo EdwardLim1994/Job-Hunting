@@ -111,7 +111,7 @@ class UpdateCompanyProfile
                                     @companyProfileTab.addClass('active')
                                     @companyProfileContent.addClass('fade show')
                                 else
-                                    window.location.href = "https://#{env.DOMAIN}#{env.CURRENT_PATH}/profile.html#addCompany"
+                                    window.location.href = "http://#{env.DOMAIN}#{env.CURRENT_PATH}/profile.html#addCompany"
                     break
         
     
@@ -300,18 +300,18 @@ class UpdateCompanyProfile
             @confirmCompanyFormValidation(isNameValid, isEmailValid, isPhoneValid, isStreetValid, isPostcodeValid, isCityValid, isStateValid)
         ).bind(@)
 
-        @companyUrl.on "focusout", (->
+        # @companyUrl.on "focusout", (->
 
-            if(@companyUrl.val())
-                @validFeedback(@companyUrl, @companyUrlValidation, "Looks Good")
-                if(not window.location.hash)
-                    @updateCompanyProfileFormSubmit.attr("disabled", false)
-            else
-                if(not window.location.hash and @companyProfileImage.val() is '')
-                    @updateCompanyProfileFormSubmit.attr("disabled", true)
+        #     if(@companyUrl.val())
+        #         @validFeedback(@companyUrl, @companyUrlValidation, "Looks Good")
+        #         if(not window.location.hash)
+        #             @updateCompanyProfileFormSubmit.attr("disabled", false)
+        #     else
+        #         if(not window.location.hash and @companyProfileImage.val() is '')
+        #             @updateCompanyProfileFormSubmit.attr("disabled", true)
 
-                @removeFeedback(@companyUrl, @companyUrlValidation)
-        ).bind(@)
+        #         @removeFeedback(@companyUrl, @companyUrlValidation)
+        # ).bind(@)
         return
 
     confirmCompanyFormValidation: (nameValidate, emailValidate, phoneValidate, streetValidate, postcodeValidate, cityValidate, stateValidate) ->
