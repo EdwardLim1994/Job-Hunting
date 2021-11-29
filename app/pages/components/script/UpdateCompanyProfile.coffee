@@ -118,7 +118,7 @@ class UpdateCompanyProfile
     update: ->
         @updateCompanyProfileForm.on "submit", ((e) ->
             e.preventDefault()
-            $("#updateProfileFormSubmit").html(@loadSpinner()).attr("disabled", true)
+            $("#updateCompanyProfileFormSubmit").html(@loadSpinner()).attr("disabled", true)
             if(@isCompanyFormValid)
                 if(window.location.hash is "#addCompany")
                     $(e.currentTarget).unbind("submit").submit()
@@ -131,7 +131,7 @@ class UpdateCompanyProfile
                     @companyState.val(if @companyState.val() then @companyState.val() else @companyState.data('default-state'))
                     @companyPostcode.val(if @companyPostcode.val() then @companyPostcode.val() else @companyPostcode.data('default-postcode'))
                     @companyPhone.val(if @companyPhone.val() then @companyPhone.val() else @companyPhone.data('default-phone'))
-                    if @companyProfileImage.val() then @companyProfileImageForUpdate.val('') else @companyProfileImageForUpdate.val(@companyProfileImage, data("default-profile"))
+                    if @companyProfileImage.val() then @companyProfileImageForUpdate.val('') else @companyProfileImageForUpdate.val(@companyProfileImage.data("default-profile"))
 
                     $(e.currentTarget).unbind("submit").submit()
             else

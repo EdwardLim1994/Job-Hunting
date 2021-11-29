@@ -90,7 +90,7 @@ class CompanyProfile
                 </div>
                 <div class='form-group'>
                     <label for='updateCompanyUrl'>Company URL</label>
-                    <input type='url' name='companyUrl' id='updateCompanyUrl' class='form-control' >
+                    <input type='text' name='companyUrl' id='updateCompanyUrl' class='form-control' >
                     <div id='updateCompanyUrlValidation'></div>
                 </div>
                 <div class='d-flex flex-column'>

@@ -120,7 +120,7 @@ class UserAuthentication
                             $.removeCookie('token', { path: "#{env.CURRENT_PATH}", domain: "#{env.DOMAIN}" })
                             $.removeCookie('role', { path: "#{env.CURRENT_PATH}", domain: "#{env.DOMAIN}" })
                             setTimeout( ->
-                                window.location.href = "#{env.CURRENT_PATH}/index.html"
+                                window.location.href = "#{env.CURRENT_PATH}"
                             , 2000)
                         when "failed"
                             @triggerLogout.empty().text("Logout")

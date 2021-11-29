@@ -448,11 +448,11 @@ class JobManagement
                 callback = JSON.parse(response)
                 switch callback.status
                     when "success"
-                        @updateJobPosition.attr("data-position", callback.data.position).attr("placeholder", callback.data.position)
-                        @updateJobSalary.attr("data-salary", callback.data.salary).attr("placeholder", callback.data.salary)
-                        @updateJobExperience.attr("data-experience", callback.data.experience).attr("placeholder", callback.data.experience)
-                        @updateJobDescription.attr("data-description", callback.data.description).attr("placeholder", callback.data.description)
-                        @updateJobRequirement.attr("data-requirement", callback.data.requirement).attr("placeholder", callback.data.requirement)
+                        @updateJobPosition.attr("data-position", callback.data.position).attr("placeholder", callback.data.position).val(callback.data.position)
+                        @updateJobSalary.attr("data-salary", callback.data.salary).attr("placeholder", callback.data.salary).val(callback.data.salary)
+                        @updateJobExperience.attr("data-experience", callback.data.experience).attr("placeholder", callback.data.experience).val(callback.data.experience)
+                        @updateJobDescription.attr("data-description", callback.data.description).attr("placeholder", callback.data.description).val(callback.data.description)
+                        @updateJobRequirement.attr("data-requirement", callback.data.requirement).attr("placeholder", callback.data.requirement).val(callback.data.requirement)
                     when "failed"
                         @notify.showErrorMessage(callback.message)
                         @overlay.closeLoadingOverlay()
@@ -471,7 +471,7 @@ class JobManagement
     addJobFormValidation: ->
         isPositionValid = false
         isSalaryValid = false
-        isExperienceValid = false
+        isExperienceValid = if @addJobExperience.val() then true else false
         isDescriptionValid = false
         isRequirementValid = false
 
